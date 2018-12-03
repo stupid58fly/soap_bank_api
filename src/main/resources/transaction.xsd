@@ -1,0 +1,25 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:TransactionPayment"
+           elementFormDefault="qualified">
+
+    <xs:element name="transactionRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cardNumber" type="xs:string" />
+                <xs:element name="cardOwner" type="xs:string" />
+                <xs:element name="cardValidity" type="xs:string" />
+                <xs:element name="cvvCode" type="xs:short" />
+                <xs:element name="transactionAmount" type="xs:double" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="transactionResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string" />
+                <xs:element name="statusId" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
