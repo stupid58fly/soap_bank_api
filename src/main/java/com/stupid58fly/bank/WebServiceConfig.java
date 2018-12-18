@@ -20,14 +20,14 @@ public class WebServiceConfig extends WsConfigurerAdapter{
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(servlet, "/*");
+        return new ServletRegistrationBean(servlet, "/bank/*");
     }
 
     @Bean(name = "transaction")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema paymentSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("transactionRequestPort");
-        wsdl11Definition.setLocationUri("/");
+        wsdl11Definition.setLocationUri("/bank");
         wsdl11Definition.setTargetNamespace("urn:TransactionPayment");
         wsdl11Definition.setSchema(paymentSchema);
         return wsdl11Definition;

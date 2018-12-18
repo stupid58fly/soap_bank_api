@@ -89,7 +89,7 @@ public class TransactionEndPoint {
 
             Date currentDate = new Date();
 
-            if (currentDate.getMonth() < month - 1 || currentDate.getYear() < year + 2000) {
+            if (currentDate.getYear() > year + 100) {
                 return false;
             }
 
@@ -101,10 +101,10 @@ public class TransactionEndPoint {
     }
 
     private boolean validateCardData(String number, String owner, Short cvv) {
-        return Math.abs(new Random().nextGaussian()) < 0.4d;
+        return Math.abs(new Random().nextGaussian()) > 0.3d;
     }
 
     private boolean processTransaction(String number, double transactionAmount) {
-        return Math.abs(new Random().nextGaussian()) < 0.3d;
+        return Math.abs(new Random().nextGaussian()) > 0.2d;
     }
 }
